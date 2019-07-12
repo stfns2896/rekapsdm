@@ -1,7 +1,7 @@
 <?php
+require('koneksi.php');
 
 if (isset($_POST["bidang"])) {
-    include('Diklatku/koneksi.php');
 
     $return_arr = array();
 
@@ -66,10 +66,6 @@ if (isset($_POST["bidang"])) {
         $id_bidang = 'B019';
     }
     
-    include('Diklatku/koneksi.php');
-
-    $connect=mysqli_connect("localhost", "root", "", "rekapsdm");
-
     $return_arr = array();
 
     $query = mysqli_query($connect, "SELECT * FROM PELATIHAN JOIN BIDANG ON pelatihan.`ID_BIDANG`= bidang.`ID_BIDANG` 
@@ -92,9 +88,6 @@ if (isset($_POST["bidang"])) {
 
     if (isset($_POST ["menu"])) {
         if ($_POST["menu"] == "Diklatku") {
-            include('Diklatku/koneksi.php');
-
-            $connect=mysqli_connect("localhost", "root", "", "rekapsdm");
             //query ke database dengan SELECT table Pegawai diurutkan berdasarkan ID_Pegawai Paling Kecil
             $return_arr = array();
 
@@ -116,9 +109,6 @@ if (isset($_POST["bidang"])) {
             echo json_encode($return_arr);
         }
         if ($_POST["menu"] == "Pegawaiku") {
-            include('Pegawaiku/koneksi.php');
-
-            $connect=mysqli_connect("localhost", "root", "", "rekapsdm");
             //query ke database dengan SELECT table Pegawai diurutkan berdasarkan ID_Pegawai Paling Kecil
             $return_arr = array();
 
@@ -137,9 +127,6 @@ if (isset($_POST["bidang"])) {
             echo json_encode($return_arr);
         }
         if ($_POST["menu"] == "Pelatihanku") {
-            include('Pelatihanku/koneksi.php');
-
-            $connect=mysqli_connect("localhost", "root", "", "rekapsdm");
             //query ke database dengan SELECT table Pegawai diurutkan berdasarkan ID_Pegawai Paling Kecil
             $return_arr = array();
 
