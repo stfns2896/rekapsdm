@@ -1,7 +1,4 @@
-<?php
-    include 'header.php';
-  ?>
-
+<?php include 'header.php';?>
 
   <div class="htmlClass">
   </div>
@@ -16,8 +13,41 @@
 <body>
   
 </body>
+  <div class="container">
+  
+    <div class="row">
 
-  <script type="text/javascript">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID Pegawai</th>
+              <th>ID Pelatihan</th>
+              <th>NIPP</th>
+              <th>Bidang</th>
+              <th>Nama Pegawai</th>
+              <th>Lokasi Pegawai</th>
+              <th>Substansi</th>
+              <th>Kelas Jabatan</th>
+              <th>Jenis Kelamin</th>
+              <th>Durasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>    
+      
+    </div>
+
+  </div>
+  
+</body>
+<!-- Script Ajax Ambil Data -->
+<script type="text/javascript">
     $("#diklatpelindo").click(function () {
       $.ajax({
         type: "POST",
@@ -33,8 +63,8 @@
             // var data1 = jQuery.parseJSON(data);
             console.log(data[0])
             var len = data.length;
-            var txt =
-              "<table cellpadding='10' cellspacing='0' border='1' id='myTable'><tr bgcolor='#CCCCCC'><th>ID Pegawai</th><th>ID Pelatihan</th><th>NIPP</th><th>Bidang</th><th>Nama Pegawai</tdh><th>Lokasi Pegawai</th><th>Substansi</th><th>Kelas Jabatan</th><th>Jenis Kelamin</th><th>Durasi</th></tr>";
+            var txt = '';
+            // var txt ="<table cellpadding='10' cellspacing='0' border='1' id='myTable'><tr bgcolor='#CCCCCC'><th>ID Pegawai</th><th>ID Pelatihan</th><th>NIPP</th><th>Bidang</th><th>Nama Pegawai</tdh><th>Lokasi Pegawai</th><th>Substansi</th><th>Kelas Jabatan</th><th>Jenis Kelamin</th><th>Durasi</th></tr>";
             if (len > 0) {
               for (var i = 0; i < len; i++) {
                 console.log(data[i])
@@ -48,7 +78,7 @@
               }
               txt += "</table>"
               if (txt != "") {
-                $('.htmlClass').html(txt);
+                $('.table').html(txt);
               }
             }
           }
@@ -242,6 +272,7 @@
       getBidang('TEKNIK')
     });
   </script>
+
   <script>
     function myFunction() {
       // Declare variables 
@@ -268,6 +299,4 @@
       }
     }
   </script>
-</body>
-
 </html>
